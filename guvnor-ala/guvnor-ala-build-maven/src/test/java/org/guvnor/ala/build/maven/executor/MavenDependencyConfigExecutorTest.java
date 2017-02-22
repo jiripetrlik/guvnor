@@ -103,7 +103,8 @@ public class MavenDependencyConfigExecutorTest {
             assertEquals(groupId, binary.getGroupId());
             assertEquals(artifactId, binary.getArtifactId());
             assertEquals(version, binary.getVersion());
-            assertEquals(m2Folder + "/org/guvnor/ala/maven-ala-artifact-test/1/maven-ala-artifact-test-1.pom", binary.getPath().toString());
+            File path = new File(m2Folder + "/org/guvnor/ala/maven-ala-artifact-test/1/maven-ala-artifact-test-1.pom");
+            assertEquals(path.getAbsolutePath(), binary.getPath().toString());
         } finally {
             if (oldSettingsXmlPath == null) {
                 System.clearProperty(CUSTOM_SETTINGS_PROPERTY);
